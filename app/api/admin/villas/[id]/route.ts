@@ -1,35 +1,43 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
-import { createAdminClient } from '@/lib/supabase/admin'
+import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  try {
-    // Verify admin authentication
-    const supabase = await createClient()
+
+// =======================
+// UPDATE VILLA (PUT)
+// =======================
+export async function PUT(request: Request, context: any) {
+  const { id } = context.params;
+try {
+    const supabase = await createClient();
     const {
       data: { user },
-    } = await supabase.auth.getUser()
+    } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const body = await request.json()
-    const { name, description, price_per_night, amenities, images } = body
+    const body = await request.json();
+    const { name, description, price_per_night, amenities, images } = body;
 
-    if (!name || !description || !price_per_night || !amenities || !images) {
+    if (
+      !name ||
+      !description ||
+      !price_per_night ||
+      !amenities ||
+      !images
+    ) {
       return NextResponse.json(
-        { error: 'Missing required fields' },
+        { error: "Missing required fields" },
         { status: 400 }
-      )
+      );
     }
 
-    const adminSupabase = createAdminClient()
+    const adminSupabase = createAdminClient();
+
     const { data, error } = await adminSupabase
-      .from('villas')
+      .from("villas")
       .update({
         name,
         description,
@@ -37,63 +45,65 @@ export async function PUT(
         amenities,
         images,
       })
-      .eq('id', params.id)
+      .eq("id",id)
       .select()
-      .single()
+      .single();
 
     if (error) {
-      console.error('Error updating villa:', error)
+      console.error("Error updating villa:", error);
       return NextResponse.json(
-        { error: 'Failed to update villa' },
+        { error: "Failed to update villa" },
         { status: 500 }
-      )
+      );
     }
 
-    return NextResponse.json({ villa: data })
-  } catch (error: any) {
-    console.error('Error:', error)
+    return NextResponse.json({ villa: data });
+  } catch (error) {
+    console.error("Error:", error);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: "Internal server error" },
       { status: 500 }
-    )
+    );
   }
 }
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+// =======================
+// DELETE VILLA
+// =======================
+export async function DELETE(request: Request, context: any) {
+  const { id } = context.params;
+
   try {
-    // Verify admin authentication
-    const supabase = await createClient()
+    const supabase = await createClient();
     const {
       data: { user },
-    } = await supabase.auth.getUser()
+    } = await supabase.auth.getUser();
 
     if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const adminSupabase = createAdminClient()
+    const adminSupabase = createAdminClient();
+
     const { error } = await adminSupabase
-      .from('villas')
+      .from("villas")
       .delete()
-      .eq('id', params.id)
+      .eq("id", id);
 
     if (error) {
-      console.error('Error deleting villa:', error)
+      console.error("Error deleting villa:", error);
       return NextResponse.json(
-        { error: 'Failed to delete villa' },
+        { error: "Failed to delete villa" },
         { status: 500 }
-      )
+      );
     }
 
-    return NextResponse.json({ success: true })
-  } catch (error: any) {
-    console.error('Error:', error)
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Error:", error);
     return NextResponse.json(
-      { error: error.message || 'Internal server error' },
+      { error: "Internal server error" },
       { status: 500 }
-    )
+    );
   }
 }

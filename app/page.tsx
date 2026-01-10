@@ -1,137 +1,170 @@
-import Link from 'next/link'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Link from "next/link"
+import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen">
-        {/* ================= STUNNING HERO SECTION ================= */}
-        <section className="relative h-screen overflow-hidden bg-black text-white">
-          {/* Background Image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center scale-110"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2400')",
-            }}
-          />
 
-          {/* Luxury Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-black/90" />
+      <main className="bg-white">
+        {/* ================= HERO ================= */}
+        {/* Floating Villa Shapes */}
+<div className="absolute inset-0 overflow-hidden pointer-events-none">
+  <div className="absolute left-10 top-32 w-40 h-24 rounded-xl border border-black/10 animate-float-slow" />
+  <div className="absolute right-12 top-48 w-56 h-32 rounded-2xl border border-black/10 animate-float-medium" />
+  <div className="absolute left-1/3 bottom-24 w-48 h-28 rounded-xl border border-black/10 animate-float-fast" />
+</div>
 
-          {/* Soft Color Glows */}
-          <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-amber-500/20 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-indigo-500/20 rounded-full blur-[120px]" />
+<section className="pt-28 pb-16 bg-white">
+  <div className="max-w-7xl mx-auto px-4 text-center">
+    {/* Headline */}
+    <h1 className="text-[2.4rem] md:text-6xl font-semibold text-gray-900 leading-tight tracking-tight">
+      Discover extraordinary villas
+      <br />
+      <span className="font-normal text-gray-700">
+        around the world
+      </span>
+    </h1>
+    <p className="mt-2 text-xs tracking-widest uppercase text-gray-400">
+  Curated luxury residences
+</p>
 
-          {/* Content */}
-          <div className="relative z-10 h-full flex items-center justify-center px-4">
-            <div className="max-w-6xl text-center">
-              {/* Eyebrow */}
-              <p className="uppercase tracking-[0.3em] text-xs sm:text-sm text-amber-400 mb-6">
-                Nomad Villa Collection
-              </p>
+    {/* Subheading */}
+    <p className="mt-4 text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
+      Handpicked luxury stays for discerning travelers
+    </p>
 
-              {/* Headline (mobile first) */}
-              <h1 className="text-4xl sm:text-5xl md:text-7xl xl:text-8xl font-extrabold leading-tight mb-6">
-                Stay{' '}
-                <span className="block sm:inline text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
-                  Extraordinary
-                </span>
-              </h1>
+    {/* Elegant divider */}
+    <div className="mt-8 flex justify-center">
+      <div className="w-16 h-[1px] bg-gray-300" />
+    </div>
 
-              {/* Subheading */}
-              <p className="text-base sm:text-lg md:text-2xl text-gray-200 max-w-xl sm:max-w-3xl mx-auto mb-10">
-                Luxury villas crafted for privacy, comfort, and unforgettable
-                escapes.
-              </p>
+    {/* Search Card */}
+    <div className="mt-10 max-w-3xl mx-auto bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-4">
+      <div className="flex flex-col gap-3">
+        <div className="border rounded-xl px-4 py-3 text-left">
+          <p className="text-xs font-medium text-gray-700">Where</p>
+          <p className="text-gray-400 text-sm">Search destinations</p>
+        </div>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-                <Link
-                  href="/villas"
-                  className="w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-semibold bg-gradient-to-r from-amber-400 to-amber-600 text-black hover:scale-105 transition shadow-2xl"
-                >
-                  Explore Luxury Villas
-                </Link>
+        <div className="border rounded-xl px-4 py-3 text-left">
+          <p className="text-xs font-medium text-gray-700">Check in</p>
+          <p className="text-gray-400 text-sm">Add dates</p>
+        </div>
 
-                <Link
-                  href="/admin"
-                  className="w-full sm:w-auto px-10 py-4 rounded-xl text-lg font-semibold border border-white/30 text-white hover:bg-white/10 transition"
-                >
-                  Admin Dashboard
-                </Link>
-              </div>
+        <div className="border rounded-xl px-4 py-3 text-left">
+          <p className="text-xs font-medium text-gray-700">Check out</p>
+          <p className="text-gray-400 text-sm">Add dates</p>
+        </div>
 
-              {/* Trust Signals */}
-              <div className="mt-12 flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-300">
-                <span>⭐ 4.9 Guest Rating</span>
-                <span>🏊 Private Pools</span>
-                <span>🔒 Secure Booking</span>
-                <span>📍 Prime Locations</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Link
+          href="/villas"
+          className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gray-900 py-3 text-white text-sm font-medium hover:bg-black transition"
+        >
+          <span>Search villas</span>
+          <span>🔍</span>
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
 
-        {/* ================= FEATURES SECTION ================= */}
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
-              Why Choose Nomad Villa?
+
+        {/* ================= FEATURED VILLAS ================= */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+              Featured luxury villas
             </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div className="text-center">
-                <div className="text-6xl mb-6">🏖️</div>
-                <h3 className="text-2xl font-semibold mb-3">Luxury Villas</h3>
-                <p className="text-gray-600">
-                  Carefully curated villas with premium interiors and world-class
-                  amenities.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="text-6xl mb-6">🔒</div>
-                <h3 className="text-2xl font-semibold mb-3">Secure Booking</h3>
-                <p className="text-gray-600">
-                  Reliable and secure booking flow with trusted payment gateways.
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="text-6xl mb-6">✨</div>
-                <h3 className="text-2xl font-semibold mb-3">
-                  Premium Experience
-                </h3>
-                <p className="text-gray-600">
-                  Designed for families, couples, and luxury travelers.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================= CTA SECTION ================= */}
-        <section className="py-24 bg-gray-100">
-          <div className="max-w-4xl mx-auto text-center px-4">
-            <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Your Luxury Escape Awaits
-            </h2>
-            <p className="text-xl text-gray-600 mb-10">
-              Browse our exclusive villas and book your perfect stay in minutes.
+            <p className="text-gray-600 mb-10">
+              Handpicked exceptional stays
             </p>
 
-            <Link
-              href="/villas"
-              className="inline-block bg-gray-900 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-gray-800 transition shadow-lg"
-            >
-              View All Villas
-            </Link>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Bali, Indonesia",
+                  price: "₹6,500",
+                  image:
+                    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+                },
+                {
+                  title: "Los Angeles, USA",
+                  price: "₹12,500",
+                  image:
+                    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+                },
+                {
+                  title: "Phuket, Thailand",
+                  price: "₹7,200",
+                  image:
+                    "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea",
+                },
+                {
+                  title: "Aspen, USA",
+                  price: "₹21,000",
+                  image:
+                    "https://images.unsplash.com/photo-1600573472591-ee6c1fcd6b15",
+                },
+              ].map((villa, i) => (
+                <div
+                  key={i}
+                  className="rounded-2xl overflow-hidden bg-white shadow hover:shadow-lg transition"
+                >
+                  <img
+                    src={villa.image}
+                    alt={villa.title}
+                    className="h-56 w-full object-cover"
+                  />
+                  <div className="p-4">
+                    <div className="flex justify-between items-center">
+                      <h3 className="font-semibold">{villa.title}</h3>
+                      <span className="text-sm">⭐ 4.9</span>
+                    </div>
+                    <p className="text-gray-600 text-sm mt-1">
+                      {villa.price} / night
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= LOCATIONS ================= */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              Popular locations
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { name: "Bali", count: "127 villas" },
+                { name: "Santorini", count: "89 villas" },
+                { name: "Tuscany", count: "156 villas" },
+                { name: "Paris", count: "203 villas" },
+              ].map((loc, i) => (
+                <div
+                  key={i}
+                  className="relative rounded-2xl overflow-hidden h-56"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
+                    <h3 className="font-semibold text-lg">{loc.name}</h3>
+                    <p className="text-sm">{loc.count}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   )

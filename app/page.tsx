@@ -9,66 +9,67 @@ export default function Home() {
 
       <main className="bg-white">
         {/* ================= HERO ================= */}
+        <section className="pt-28 pb-24 bg-white">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            {/* Headline */}
+            <h1 className="text-[2.6rem] sm:text-5xl md:text-6xl font-semibold text-gray-900 leading-tight tracking-tight">
+              Discover extraordinary villas
+              <br />
+              <span className="font-normal text-gray-600">
+                around the world
+              </span>
+            </h1>
 
-<section className="pt-28 pb-16 bg-white">
-  <div className="max-w-7xl mx-auto px-4 text-center">
-    {/* Headline */}
-    <h1 className="text-[2.4rem] md:text-6xl font-semibold text-gray-900 leading-tight tracking-tight">
-      Discover extraordinary villas
-      <br />
-      <span className="font-normal text-gray-700">
-        around the world
-      </span>
-    </h1>
-    <p className="mt-2 text-xs tracking-widest uppercase text-gray-400">
-  Curated luxury residences
-</p>
+            {/* Eyebrow text */}
+            <p className="mt-3 text-xs tracking-[0.25em] uppercase text-gray-400">
+              Curated luxury residences
+            </p>
 
-    {/* Subheading */}
-    <p className="mt-4 text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
-      Handpicked luxury stays for discerning travelers
-    </p>
+            {/* Subheading */}
+            <p className="mt-5 text-base md:text-lg text-gray-500 max-w-2xl mx-auto">
+              Handpicked luxury stays for discerning travelers
+            </p>
 
-    {/* Elegant divider */}
-    <div className="mt-8 flex justify-center">
-      <div className="w-16 h-[1px] bg-gray-300" />
-    </div>
+            {/* Divider */}
+            <div className="mt-8 flex justify-center">
+              <div className="w-14 h-[1px] bg-gray-300" />
+            </div>
 
-    {/* Search Card */}
-    <div className="mt-10 max-w-3xl mx-auto bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-4">
-      <div className="flex flex-col gap-3">
-        <div className="border rounded-xl px-4 py-3 text-left">
-          <p className="text-xs font-medium text-gray-700">Where</p>
-          <p className="text-gray-400 text-sm">Search destinations</p>
-        </div>
+            {/* Search Bar (UI only) */}
+            <div className="mt-12 max-w-4xl mx-auto bg-white rounded-full shadow-[0_18px_50px_rgba(0,0,0,0.12)] px-4 py-3">
+              <div className="grid grid-cols-1 md:grid-cols-4 items-center gap-3 text-left">
+                <div className="px-4 py-2">
+                  <p className="text-xs font-medium text-gray-700">Where</p>
+                  <p className="text-sm text-gray-400">Search destinations</p>
+                </div>
 
-        <div className="border rounded-xl px-4 py-3 text-left">
-          <p className="text-xs font-medium text-gray-700">Check in</p>
-          <p className="text-gray-400 text-sm">Add dates</p>
-        </div>
+                <div className="px-4 py-2 border-t md:border-t-0 md:border-l">
+                  <p className="text-xs font-medium text-gray-700">Check in</p>
+                  <p className="text-sm text-gray-400">Add dates</p>
+                </div>
 
-        <div className="border rounded-xl px-4 py-3 text-left">
-          <p className="text-xs font-medium text-gray-700">Check out</p>
-          <p className="text-gray-400 text-sm">Add dates</p>
-        </div>
+                <div className="px-4 py-2 border-t md:border-t-0 md:border-l">
+                  <p className="text-xs font-medium text-gray-700">Check out</p>
+                  <p className="text-sm text-gray-400">Add dates</p>
+                </div>
 
-        <Link
-          href="/villas"
-          className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gray-900 py-3 text-white text-sm font-medium hover:bg-black transition"
-        >
-          <span>Search villas</span>
-          <span>🔍</span>
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
-
+                <div className="flex justify-end px-2">
+                  <Link
+                    href="/villas"
+                    className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-900 text-white hover:bg-black transition"
+                  >
+                    🔍
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ================= FEATURED VILLAS ================= */}
         <section className="py-16 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-2">
               Featured luxury villas
             </h2>
             <p className="text-gray-600 mb-10">
@@ -113,7 +114,7 @@ export default function Home() {
                   />
                   <div className="p-4">
                     <div className="flex justify-between items-center">
-                      <h3 className="font-semibold">{villa.title}</h3>
+                      <h3 className="font-medium">{villa.title}</h3>
                       <span className="text-sm">⭐ 4.9</span>
                     </div>
                     <p className="text-gray-600 text-sm mt-1">
@@ -129,7 +130,7 @@ export default function Home() {
         {/* ================= LOCATIONS ================= */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+            <h2 className="text-3xl font-semibold text-gray-900 mb-8">
               Popular locations
             </h2>
 
@@ -149,7 +150,7 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40 flex flex-col justify-end p-4 text-white">
-                    <h3 className="font-semibold text-lg">{loc.name}</h3>
+                    <h3 className="font-medium text-lg">{loc.name}</h3>
                     <p className="text-sm">{loc.count}</p>
                   </div>
                 </div>

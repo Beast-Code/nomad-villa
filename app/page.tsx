@@ -9,12 +9,6 @@ export default function Home() {
 
       <main className="bg-white">
         {/* ================= HERO ================= */}
-        {/* Floating Villa Shapes */}
-<div className="absolute inset-0 overflow-hidden pointer-events-none">
-  <div className="absolute left-10 top-32 w-40 h-24 rounded-xl border border-black/10 animate-float-slow" />
-  <div className="absolute right-12 top-48 w-56 h-32 rounded-2xl border border-black/10 animate-float-medium" />
-  <div className="absolute left-1/3 bottom-24 w-48 h-28 rounded-xl border border-black/10 animate-float-fast" />
-</div>
 
 <section className="pt-28 pb-16 bg-white">
   <div className="max-w-7xl mx-auto px-4 text-center">
